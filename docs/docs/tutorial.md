@@ -373,7 +373,7 @@ var CommentBox = React.createClass({
 });
 ```
 
-`getInitialState()` executes exactly once during the lifecycle of the component and sets up the initial state of the component.
+`getInitialState()` is a [lifecycle method](/react/docs/component-specs.html) that executes exactly once during the lifecycle of the component and sets up the initial state of the component.
 
 #### Updating state
 When the component is first created, we want to GET some JSON from the server and update the state to reflect the latest data. We're going to use jQuery to make an asynchronous request to the server we started earlier to fetch the data we need. The data is already included in the server you started (based on the `comments.json` file), so once it's fetched, `this.state.data` will look something like this:
@@ -416,7 +416,7 @@ var CommentBox = React.createClass({
 });
 ```
 
-Here, `componentDidMount` is a method called automatically by React after a component is rendered for the first time. The key to dynamic updates is the call to `this.setState()`. We replace the old array of comments with the new one from the server and the UI automatically updates itself. Because of this reactivity, it is only a minor change to add live updates. We will use simple polling here but you could easily use WebSockets or other technologies.
+Here, `componentDidMount` is another lifecycle method that is called automatically by React after a component is rendered for the first time. The key to dynamic updates is the call to `this.setState()`. We replace the old array of comments with the new one from the server and the UI automatically updates itself. Because of this reactivity, it is only a minor change to add live updates. We will use simple polling here but you could easily use WebSockets or other technologies.
 
 ```javascript{3,15,20-21,35}
 // tutorial14.js
